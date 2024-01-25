@@ -27,8 +27,8 @@ RectTransform:
   m_GameObject: {fileID: 802598169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1471944299}
   m_Father: {fileID: 8576089572373171712}
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 147.32}
   m_SizeDelta: {x: 151, y: 518}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &802598172
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0879cc92806ec6f46a1265f0952c93c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftMoveSpeed: -2
+  leftMoveSpeed: -0.5
   playerMovement: {fileID: 0}
   featherController: {fileID: 802598173}
 --- !u!1 &8576089572657151097
@@ -512,6 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c096a30f14db7ff4f865b9ebeea6ff01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightMoveSpeed: 2
+  rightMoveSpeed: 0.5
   playerMovement: {fileID: 0}
   featherController: {fileID: 802598173}

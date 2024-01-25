@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        UpdateCameraPosition();
+        //UpdateCameraPosition();
     }
 
     void MovePlayer()
