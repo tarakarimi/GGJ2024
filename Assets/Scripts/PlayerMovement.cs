@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     public bool goUp = false;
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private Camera mainCamera; 
+    [SerializeField] private Camera mainCamera;
 
     void Start()
     {
@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        //UpdateCameraPosition();
     }
 
     void MovePlayer()
@@ -28,14 +27,5 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveDirection = new Vector2(horizontalSpeed, verticalSpeed);
         
         rb.AddForce(moveDirection);
-    }
-    
-    private void UpdateCameraPosition()
-    {
-        if (mainCamera != null)
-        {
-            Vector3 cameraPosition = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
-            mainCamera.transform.position = cameraPosition;
-        }
     }
 }

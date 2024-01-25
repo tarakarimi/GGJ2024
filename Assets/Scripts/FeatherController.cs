@@ -6,6 +6,8 @@ public class FeatherController : MonoBehaviour
     [SerializeField] private Transform leftFoot;
     [SerializeField] private Transform rightFoot;
     [SerializeField] private float degree;
+    [SerializeField] private ExpressionHandler _expressionHandler;
+    [SerializeField] private PlayerMovement _playerMovement;
 
     private void Start()
     {
@@ -29,6 +31,12 @@ public class FeatherController : MonoBehaviour
     
     public void WiggleFeather()
     {
-        transform.DOPunchRotation(new Vector3(0, 0, 1), 0.5f);
+        transform.DOPunchRotation(new Vector3(0, 0, 1), 1f).OnComplete(() =>
+        {
+            if (!_playerMovement.goUp)
+            {
+                _expressionHandler.SetExpression(ExpressionHandler.Expression.SLEEP);
+            }
+        });
     }
 }
