@@ -7,10 +7,10 @@ public class PathBounceController : MonoBehaviour {
     [SerializeField] private Transform player;
     [SerializeField] private SpriteShapeController rightWallShape;
     [SerializeField] private SpriteShapeController leftWallShape;
-    [SerializeField] private float bounceHeight = 1f;
+    [SerializeField] private float maxBounceAmplitude = 0.1f;
     [SerializeField] private float bounceFrequency = 1f;
+    private float currentBounceAmplitude = 1; // this is used to control the amplitude, according to the laugh meter
     private IEnumerator bounceCoroutine;
-
     private int lastLeftWallPointIdx;
     private int lastRightWallPointIdx;
 
@@ -29,12 +29,15 @@ public class PathBounceController : MonoBehaviour {
         bounceCoroutine = Bounce();
         StartCoroutine(bounceCoroutine);
     }
+    
+    public void SetBounceAmplitude(float amplitude) {
+        currentBounceAmplitude = amplitude;
+    }
 
     private IEnumerator Bounce() {
         float t = 0f;
         while (true) {
             t += Time.deltaTime;
-            float xOffset = Mathf.Sin(t * Mathf.PI * bounceFrequency) * bounceHeight;
             var curLeftWallPointIdx = GetClosestSplinePointToPlayer(leftWallShape);
             var curRightWallPointIdx = GetClosestSplinePointToPlayer(rightWallShape);
 
@@ -47,10 +50,11 @@ public class PathBounceController : MonoBehaviour {
                 RevertRightPointToInitPos(lastRightWallPointIdx);
                 lastRightWallPointIdx = curRightWallPointIdx;
             }
-
-            var leftWallPointPos = leftWallShape.spline.GetPosition(curLeftWallPointIdx);
-            var rightWallPointPos = rightWallShape.spline.GetPosition(curRightWallPointIdx);
-
+            
+            Vector3 leftWallPointPos = leftWallInitialPositions[curLeftWallPointIdx];
+            Vector3 rightWallPointPos = rightWallInitialPositions[curRightWallPointIdx];
+            
+            float xOffset = Mathf.Sin(t * Mathf.PI * bounceFrequency) * maxBounceAmplitude * currentBounceAmplitude;
             leftWallShape.spline.SetPosition(curLeftWallPointIdx,
                 new Vector3(leftWallPointPos.x + xOffset, leftWallPointPos.y, leftWallPointPos.z));
             rightWallShape.spline.SetPosition(curRightWallPointIdx,
