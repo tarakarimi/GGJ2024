@@ -5,14 +5,22 @@ public class LeftFoot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private float leftMoveSpeed;
     [SerializeField] private PlayerMovement playerMovement;
-    
+    [SerializeField] private FeatherController featherController;
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        playerMovement.moveSpeed = leftMoveSpeed;
+        if (playerMovement != null)
+        {
+            playerMovement.moveSpeed = leftMoveSpeed;
+            featherController.RotateToLeftFoot();
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        playerMovement.moveSpeed = 0f; // Stop movement when button is released
+        if (playerMovement != null)
+        {
+            playerMovement.moveSpeed = 0f;
+        }
     }
 }

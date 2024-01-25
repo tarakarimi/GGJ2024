@@ -5,14 +5,22 @@ public class RightFoot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private float rightMoveSpeed;
     [SerializeField] private PlayerMovement playerMovement;
-    
+    [SerializeField] private FeatherController featherController;
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        playerMovement.moveSpeed = rightMoveSpeed;
+        if (playerMovement != null)
+        {
+            playerMovement.moveSpeed = rightMoveSpeed;
+            featherController.RotateToRightFoot();
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        playerMovement.moveSpeed = 0f; // Stop movement when button is released
+        if (playerMovement != null)
+        {
+            playerMovement.moveSpeed = 0f;
+        }
     }
 }
