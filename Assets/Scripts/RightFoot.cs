@@ -11,7 +11,8 @@ public class RightFoot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (playerMovement != null)
         {
-            playerMovement.moveSpeed = rightMoveSpeed;
+            playerMovement.horizontalSpeed = rightMoveSpeed;
+            playerMovement.goUp = true;
             featherController.RotateToRightFoot();
         }
     }
@@ -20,7 +21,8 @@ public class RightFoot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (playerMovement != null)
         {
-            playerMovement.moveSpeed = 0f;
+            playerMovement.horizontalSpeed = 0f;
+            playerMovement.goUp = false;
         }
     }
 }
