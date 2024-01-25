@@ -14,7 +14,7 @@ public class FeatherController : MonoBehaviour
 
     public void RotateToFoot(float targetRotation)
     {
-        transform.DORotate(new Vector3(0, 0, targetRotation), 0.5f);
+        transform.DORotate(new Vector3(0, 0, targetRotation), 0.5f).OnComplete(WiggleFeather);
     }
 
     public void RotateToLeftFoot()
@@ -25,5 +25,10 @@ public class FeatherController : MonoBehaviour
     public void RotateToRightFoot()
     {
         RotateToFoot(-degree);
+    }
+    
+    public void WiggleFeather()
+    {
+        transform.DOPunchRotation(new Vector3(0, 0, 1), 0.5f);
     }
 }
