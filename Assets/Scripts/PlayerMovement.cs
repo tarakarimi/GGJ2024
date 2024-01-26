@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        verticalSpeed = goUp ? 2 * maxVerticalSpeed : -maxVerticalSpeed;
+        verticalSpeed = goUp ? 5 * maxVerticalSpeed : -maxVerticalSpeed;
         
         Vector2 moveDirection = new Vector2(horizontalSpeed, verticalSpeed);
         

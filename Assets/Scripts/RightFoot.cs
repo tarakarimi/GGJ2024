@@ -25,7 +25,6 @@ public class RightFoot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             playerMovement.horizontalSpeed = 0f;
             playerMovement.goUp = false;
-            //_expressionHandler.SetExpression(ExpressionHandler.Expression.SLEEP);
         }
     }
 }
