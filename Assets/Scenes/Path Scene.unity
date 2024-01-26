@@ -865,23 +865,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8915759409194459279, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
   m_PrefabInstance: {fileID: 784561675}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &406141031 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8576089572373171716, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
+--- !u!225 &406141037 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 406141037, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
   m_PrefabInstance: {fileID: 1021956506}
   m_PrefabAsset: {fileID: 0}
---- !u!225 &406141037
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406141031}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1001 &784561675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1244,14 +1232,6 @@ PrefabInstance:
       propertyPath: _playerMovement
       value: 
       objectReference: {fileID: 392312355}
-    - target: {fileID: 3447460220089742628, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650227354302502863, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 222
-      objectReference: {fileID: 0}
     - target: {fileID: 8576089572373171712, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1340,10 +1320,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8576089572373171716, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8576089572404100102, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
       propertyPath: playerMovement
       value: 
@@ -1352,18 +1328,6 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 392312355}
-    - target: {fileID: 8697883057551638663, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697883057551638663, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697883057551638663, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
 --- !u!1 &1021956507 stripped
