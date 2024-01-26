@@ -20,26 +20,24 @@ public class GiantSoundManager : MonoBehaviour
 
     public void PlayHappySound()
     {
-        if (audioSource.isPlaying && isHappyPlaying)
-        {
-            
-        }
-        else
-        {
+        if (!isHappyPlaying) {
             // Stop the snore loop
             StopSnoreLoop();
             isHappyPlaying = true;
             // Play a random happy sound
+            AudioClip selectedSound;
             if (Random.Range(0f, 1f) > 0.5f)
             {
-                PlaySound(happySound1);
+                selectedSound = happySound1;
             }
             else
             {
-                PlaySound(happySound2);
+                selectedSound = happySound2;
             }
+
+            PlaySound(selectedSound);
             
-            Invoke("PlaySnoreLoop", 2f);
+            Invoke(nameof(PlaySnoreLoop), selectedSound.length);
         }
     }
 
