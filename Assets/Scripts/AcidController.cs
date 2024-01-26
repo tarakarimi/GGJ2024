@@ -14,6 +14,7 @@ public class AcidController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.TryGetComponent(out PlayerMovement player)) {
+            GameManager.instance.LoseGameByAcid();
             // If the player collides with the acid, lose the game
         }
     }
