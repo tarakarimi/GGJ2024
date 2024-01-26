@@ -14,9 +14,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotSpeed;
     [SerializeField] private float fastSpeedMultiplier;
     [SerializeField] private float fastSpeedDuration;
+    private float onFoodGetSpeed;
+    private float normalSpeed;
 
     void Start()
     {
+        onFoodGetSpeed = maxVerticalSpeed * fastSpeedMultiplier;
+        normalSpeed = maxVerticalSpeed;
+        
         rb = GetComponent<Rigidbody2D>();
         rb.AddTorque(20f);
     }
@@ -42,13 +47,13 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ApplySpeedBoost(float multiplier, float duration)
     {
         // Increase speed
-        maxVerticalSpeed *= multiplier;
+        maxVerticalSpeed = onFoodGetSpeed;
 
         // Wait for the specified duration
         yield return new WaitForSeconds(duration);
 
         // Revert speed back to normal
-        maxVerticalSpeed /= multiplier;
+        maxVerticalSpeed = normalSpeed;
     }
 
     public void RotateTorque(float value)

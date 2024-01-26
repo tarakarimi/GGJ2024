@@ -15,7 +15,6 @@ public class LeftFoot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             playerMovement.horizontalSpeed = leftMoveSpeed;
             playerMovement.goUp = true;
             featherController.RotateToLeftFoot();
-            _expressionHandler.SetExpression(ExpressionHandler.Expression.HAPPY);
             playerMovement.RotateTorque(-1);
         }
     }
