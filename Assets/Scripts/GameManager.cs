@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour {
     public void WinGame() {
         if (IsGameOver()) return;
         GameState = GameState.Won;
+        SceneHandler.Instance.LoadWinScene();
     }
 
     public void LoseGameByAcid() {
