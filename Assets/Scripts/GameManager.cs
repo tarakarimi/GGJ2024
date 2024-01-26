@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private CanvasGroup uiCanvasGroup;
     [SerializeField] private float fadeInDuration = 0.5f;
     [SerializeField] private float beforeAcidRiseDelay = 1f;
+    [SerializeField] private float loadAcidSceneDelay = 2f;
 
     [Header("Blood Lose Screen")]
     [SerializeField] private GameObject bloodLoseScreen;
@@ -67,6 +68,10 @@ public class GameManager : MonoBehaviour {
     public void LoseGameByAcid() {
         if (IsGameOver()) return;
         GameState = GameState.AcidLost;
+        Invoke(nameof(LoadLoseAcidScene), loadAcidSceneDelay);
+    }
+
+    private void LoadLoseAcidScene() {
         SceneHandler.Instance.LoadAcidLoseScene();
     }
 
