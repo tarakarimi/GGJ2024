@@ -681,6 +681,14 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 855499482}
+    - target: {fileID: 8915759409194459277, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
+      propertyPath: fastSpeedDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915759409194459277, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
+      propertyPath: fastSpeedMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8915759409194459279, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -953,6 +961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1004377816}
   - component: {fileID: 1004377817}
+  - component: {fileID: 1004377818}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -968,7 +977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004377815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 21.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -988,6 +997,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodLoseScreen: {fileID: 1021956507}
+--- !u!114 &1004377818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004377815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d176131e134e74597f5a708a7be9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodTypes:
+  - {fileID: 5889786179826730027, guid: 35f68c5e087f7764089cbda693622d13, type: 3}
+  - {fileID: 5889786179826730027, guid: 008f86afc1b4e5141ae8d72e0e87cc85, type: 3}
+  - {fileID: 5889786179826730027, guid: c847701a53ebb354aa22d06bc4ef0a5e, type: 3}
+  minXPosition: -1
+  maxXPosition: 1
 --- !u!1001 &1021956506
 PrefabInstance:
   m_ObjectHideFlags: 0

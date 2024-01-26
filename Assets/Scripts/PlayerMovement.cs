@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float rotSpeed;
+    [SerializeField] private float fastSpeedMultiplier;
+    [SerializeField] private float fastSpeedDuration;
 
     void Start()
     {
@@ -23,7 +26,28 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Lost by blood");
             GameManager.instance.LoseGameByBlood();
+        } else if (other.transform.CompareTag("Food"))
+        {
+            Destroy(other.gameObject);
+            BoostSpeed(fastSpeedMultiplier,fastSpeedDuration);
         }
+    }
+
+    public void BoostSpeed(float multiplier, float duration)
+    {
+        StartCoroutine(ApplySpeedBoost(multiplier, duration));
+    }
+
+    IEnumerator ApplySpeedBoost(float multiplier, float duration)
+    {
+        // Increase speed
+        verticalSpeed *= multiplier;
+
+        // Wait for the specified duration
+        yield return new WaitForSeconds(duration);
+
+        // Revert speed back to normal
+        verticalSpeed /= multiplier;
     }
 
     public void RotateTorque(float value)
