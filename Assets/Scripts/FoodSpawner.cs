@@ -6,25 +6,29 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> foodTypes = new List<GameObject>();
     [SerializeField] private float minXPosition = -5f;
     [SerializeField] private float maxXPosition = 5f;
+    public bool isActive = false;
 
     private void Start()
     {
         // Start spawning food periodically
-        InvokeRepeating("SpawnFood", 0f, Random.Range(3f, 8f));
+        InvokeRepeating("SpawnFood", 3f, Random.Range(3f, 8f));
     }
 
     private void SpawnFood()
     {
-        // Randomly select one of the food types from the list
-        GameObject selectedFood = GetRandomFoodType();
-
-        if (selectedFood != null)
+        if (isActive)
         {
-            // Random X position within the specified range
-            float randomX = Random.Range(minXPosition, maxXPosition);
+            // Randomly select one of the food types from the list
+            GameObject selectedFood = GetRandomFoodType();
 
-            // Spawn the selected food at the random position
-            Instantiate(selectedFood, new Vector3(randomX, transform.position.y, 0f), Quaternion.identity);
+            if (selectedFood != null)
+            {
+                // Random X position within the specified range
+                float randomX = Random.Range(minXPosition, maxXPosition);
+
+                // Spawn the selected food at the random position
+                Instantiate(selectedFood, new Vector3(randomX, transform.position.y, 0f), Quaternion.identity);
+            }
         }
     }
 

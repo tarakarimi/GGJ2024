@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float horizontalSpeed = 0f;
     public float maxVerticalSpeed = 0.5f;
     public float verticalSpeed = -0.5f;
+    
     [SerializeField] public Rigidbody2D rb;
     public bool goUp = false;
     [SerializeField] private float moveSpeed = 5f;
@@ -41,13 +42,13 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ApplySpeedBoost(float multiplier, float duration)
     {
         // Increase speed
-        verticalSpeed *= multiplier;
+        maxVerticalSpeed *= multiplier;
 
         // Wait for the specified duration
         yield return new WaitForSeconds(duration);
 
         // Revert speed back to normal
-        verticalSpeed /= multiplier;
+        maxVerticalSpeed /= multiplier;
     }
 
     public void RotateTorque(float value)
