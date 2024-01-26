@@ -1,10 +1,15 @@
 using UnityEngine;
 
 public class AcidController : MonoBehaviour {
+    
     [SerializeField] private float normalSpeed = 1f;
+    public bool shouldGoUp = false;
 
     void Update() {
-        transform.Translate(Vector3.up * (normalSpeed * Time.deltaTime));
+        if (shouldGoUp)
+        {
+            transform.Translate(Vector3.up * (normalSpeed * Time.deltaTime));
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
