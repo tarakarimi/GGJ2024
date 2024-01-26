@@ -11,7 +11,14 @@ public enum GameState {
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameState GameState { get; private set; }
+    
+    [SerializeField] private AcidController acidController;
+    [SerializeField] private GameObject blades;
+    
+    [Header("Blood Lose Screen")]
     [SerializeField] private GameObject bloodLoseScreen;
+    [SerializeField] private Animation bloodLoseAnimation;
+    [SerializeField] private FoodSpawner foodSpawner;
 
     private void Awake() {
         if (instance == null) {
@@ -23,21 +30,36 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         GameState = GameState.PreStart;
+        foodSpawner.gameObject.SetActive(false);
     }
 
+    public void StartGame() {
+        GameState = GameState.Playing;
+        acidController.shouldGoUp = true;
+        blades.SetActive(true);
+        foodSpawner.gameObject.SetActive(true);
+        // TODO: tara complete this please!!!!
+    }
+
+
     public void WinGame() {
-        if (GameState == GameState.Playing) return;
+        if (IsGameOver()) return;
         GameState = GameState.Won;
     }
 
     public void LoseGameByAcid() {
-        if (GameState == GameState.Playing) return;
+        if (IsGameOver()) return;
         GameState = GameState.AcidLost;
     }
 
     public void LoseGameByBlood() {
-        if (GameState == GameState.Playing) return;
+        if (IsGameOver()) return;
         GameState = GameState.BloodLost;
         bloodLoseScreen.SetActive(true);
+        bloodLoseAnimation.Play();
+    }
+
+    private bool IsGameOver() {
+        return GameState != GameState.Playing && GameState != GameState.PreStart;
     }
 }
