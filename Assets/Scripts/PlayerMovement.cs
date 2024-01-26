@@ -17,6 +17,15 @@ public class PlayerMovement : MonoBehaviour
         rb.AddTorque(20f);
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Blade"))
+        {
+            Debug.Log("Lost by blood");
+            GameManager.instance.LoseGameByBlood();
+        }
+    }
+
     public void RotateTorque(float value)
     {
         rb.AddTorque(value * rotSpeed);
