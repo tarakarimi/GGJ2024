@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5668784373420765435}
   - component: {fileID: 5668784373420765434}
+  - component: {fileID: 4568976060038175473}
   m_Layer: 0
   m_Name: SceneHandler
   m_TagString: Untagged
@@ -47,3 +48,16 @@ MonoBehaviour:
   gameSceneName: Path Scene
   acidLoseSceneName: Acid Lose
   winSceneName: Win Scene
+--- !u!114 &4568976060038175473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668784373420765432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae06fa4dcad0b544d8fa14802ff3bb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aspectRatio: {x: 9, y: 16}
