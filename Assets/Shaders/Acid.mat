@@ -29,6 +29,7 @@ Material:
     - _BounceAmplitude: 0.05
     - _BounceFreq: 22.5
     - _BounceFrequency: 1
+    - _TimeSpeed: 8
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

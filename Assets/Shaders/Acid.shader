@@ -5,6 +5,7 @@ Shader "Unlit/Acid"
         _MainTex ("Texture", 2D) = "white" {}
         _BounceFreq ("Bounce Frequency", float) = 1
         _BounceAmplitude ("Bounce Amplitude", float) = 1
+        _TimeSpeed ("Time Speed", float) = 1
     }
     SubShader
     {
@@ -47,6 +48,7 @@ Shader "Unlit/Acid"
             float4 _MainTex_ST;
             float _BounceFreq;
             float _BounceAmplitude;
+            float _TimeSpeed;
 
             v2f vert(appdata v)
             {
@@ -59,7 +61,7 @@ Shader "Unlit/Acid"
             fixed4 frag(v2f i) : SV_Target
             {
                 // return i.uv.x;
-                float bounce = sin(i.uv.x * _BounceFreq + _Time.y) * _BounceAmplitude;
+                float bounce = sin(i.uv.x * _BounceFreq + _Time.y * _TimeSpeed) * _BounceAmplitude;
                 // return sin(i.uv.x * _BounceFreq + _Time.y) * _BounceAmplitude;/
                 i.uv.y += bounce;
                 fixed4 col = tex2D(_MainTex, float2(i.uv.x, i.uv.y));

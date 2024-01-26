@@ -11,6 +11,7 @@ public enum GameState {
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameState GameState { get; private set; }
+    [SerializeField] private GameObject bloodLoseScreen;
 
     private void Awake() {
         if (instance == null) {
@@ -37,5 +38,6 @@ public class GameManager : MonoBehaviour {
     public void LoseGameByBlood() {
         if (GameState == GameState.Playing) return;
         GameState = GameState.BloodLost;
+        bloodLoseScreen.SetActive(true);
     }
 }
