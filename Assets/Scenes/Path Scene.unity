@@ -1501,6 +1501,22 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 392312355}
+    - target: {fileID: 8697883057551638663, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1560033390}
+    - target: {fileID: 8697883057551638663, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGameScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697883057551638663, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697883057551638663, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
 --- !u!1 &1021956507 stripped
@@ -2308,6 +2324,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1560033390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5668784373420765434, guid: 5d99f69f53cf9ed4eb59d0493dbd5073, type: 3}
+  m_PrefabInstance: {fileID: 5668784371959392905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15563806c726ef047b08828d23657a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1571277751
 GameObject:
   m_ObjectHideFlags: 0
