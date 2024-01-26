@@ -16,6 +16,7 @@ public class RightFoot : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             playerMovement.goUp = true;
             featherController.RotateToRightFoot();
             _expressionHandler.SetExpression(ExpressionHandler.Expression.HAPPY);
+            playerMovement.RotateTorque(1);
         }
     }
 

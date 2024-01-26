@@ -233,8 +233,8 @@ PositionConstraint:
   m_GameObject: {fileID: 100770069}
   m_Enabled: 1
   m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 3.71, z: 0}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_TranslationAtRest: {x: 0, y: 14.800001, z: 0}
+  m_TranslationOffset: {x: 0, y: -5.5999985, z: 0}
   m_AffectTranslationX: 0
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 0
@@ -251,7 +251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100770069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.71, z: 0}
+  m_LocalPosition: {x: 0, y: 14.800001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -638,9 +638,17 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1569985600, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 8915759409194459276, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915759409194459277, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
+      propertyPath: rotSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8915759409194459277, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
       propertyPath: mainCamera
@@ -656,7 +664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8915759409194459279, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.71
+      value: 20.4
       objectReference: {fileID: 0}
     - target: {fileID: 8915759409194459279, guid: 081925561af61ac4284e5bb229b8151f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -771,7 +779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855499480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.71, z: -10}
+  m_LocalPosition: {x: 0, y: 14.800001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -919,6 +927,10 @@ PrefabInstance:
       propertyPath: _playerMovement
       value: 
       objectReference: {fileID: 392312355}
+    - target: {fileID: 6650227354302502863, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 222
+      objectReference: {fileID: 0}
     - target: {fileID: 8576089572373171712, guid: 7fcabee549c843e4c97d514671cf52ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1705,8 +1717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0.805
-  m_LookaheadSmoothing: 6
+  m_LookaheadTime: 0.5
+  m_LookaheadSmoothing: 4
   m_LookaheadIgnoreY: 0
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 0.5
@@ -1794,7 +1806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910823739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.71, z: -10}
+  m_LocalPosition: {x: 0, y: 14.800001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
