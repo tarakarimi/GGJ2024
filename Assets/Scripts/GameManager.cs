@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     
     [SerializeField] private AcidController acidController;
     [SerializeField] private GameObject blades;
-    
+
     [Header("Blood Lose Screen")]
     [SerializeField] private GameObject bloodLoseScreen;
     [SerializeField] private Animation bloodLoseAnimation;
@@ -37,8 +37,7 @@ public class GameManager : MonoBehaviour {
         GameState = GameState.Playing;
         acidController.shouldGoUp = true;
         blades.SetActive(true);
-        foodSpawner.gameObject.SetActive(true);
-        // TODO: tara complete this please!!!!
+        foodSpawner.isActive = true;
     }
 
 
