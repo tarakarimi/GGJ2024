@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,18 +7,12 @@ public class ExpressionHandler : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Sprite sleepSprite;
     [SerializeField] private Sprite happySprite;
-    [SerializeField] private Sprite angrySprite;
-    
-    // Start is called before the first frame update
+
+    [SerializeField] private GiantSoundManager soundManager;
+
     void Start()
     {
         SetExpression(Expression.SLEEP);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetExpression(Expression expression)
@@ -28,20 +21,33 @@ public class ExpressionHandler : MonoBehaviour
         {
             case Expression.SLEEP:
                 _image.sprite = sleepSprite;
+                StartCoroutine(PlaySnoreSound());
                 break;
             case Expression.HAPPY:
                 _image.sprite = happySprite;
-                break;
-            case Expression.ANGRY:
-                _image.sprite = angrySprite;
+                PlayHappySound();
                 break;
         }
+    }
+
+    IEnumerator PlaySnoreSound()
+    {
+        while (true)
+        {
+            // Play snore sound every 5 seconds
+            soundManager.PlaySnoreLoop();
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    private void PlayHappySound()
+    {
+        soundManager.PlayHappySound();
     }
 
     public enum Expression
     {
         SLEEP = 0,
-        HAPPY = 1,
-        ANGRY = 2
+        HAPPY = 1
     }
 }
