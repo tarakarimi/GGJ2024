@@ -21,7 +21,7 @@ public class ExpressionHandler : MonoBehaviour
         {
             case Expression.SLEEP:
                 _image.sprite = sleepSprite;
-                StartCoroutine(PlaySnoreSound());
+                // StartCoroutine(PlaySnoreSound());
                 break;
             case Expression.HAPPY:
                 _image.sprite = happySprite;
@@ -30,15 +30,15 @@ public class ExpressionHandler : MonoBehaviour
         }
     }
 
-    IEnumerator PlaySnoreSound()
-    {
-        while (true)
-        {
-            // Play snore sound every 5 seconds
-            soundManager.PlaySnoreLoop();
-            yield return new WaitForSeconds(1f);
-        }
-    }
+    // IEnumerator PlaySnoreSound()
+    // {
+    //     while (true)
+    //     {
+    //         // Play snore sound every 5 seconds
+    //         soundManager.PlaySnoreLoop();
+    //         yield return new WaitForSeconds(1f);
+    //     }
+    // }
 
     private void PlayHappySound()
     {

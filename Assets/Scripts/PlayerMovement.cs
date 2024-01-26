@@ -27,13 +27,18 @@ public class PlayerMovement : MonoBehaviour
         rb.AddTorque(20f);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.CompareTag("Blade"))
         {
             Debug.Log("Lost by blood");
             GameManager.Instance.LoseGameByBlood();
-        } else if (other.transform.CompareTag("Food"))
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.transform.CompareTag("Food"))
         {
             Destroy(other.gameObject);
             BoostSpeed(fastSpeedMultiplier,fastSpeedDuration);
