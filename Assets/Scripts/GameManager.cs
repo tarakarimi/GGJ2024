@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour {
     
     [SerializeField] private CanvasGroup uiCanvasGroup;
     [SerializeField] private float fadeInDuration = 0.5f;
+    [SerializeField] private float beforeAcidRiseDelay = 1f;
 
     [Header("Blood Lose Screen")]
     [SerializeField] private GameObject bloodLoseScreen;
@@ -44,13 +46,17 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame() {
         GameState = GameState.Playing;
-        acidController.shouldGoUp = true;
         blades.SetActive(true);
         foodSpawner.isActive = true;
         playerMovement.enabled = true;
         wallController.enabled = true;
         uiCanvasGroup.DOFade(1, fadeInDuration);
+        Invoke(nameof(StartAcidRising), beforeAcidRiseDelay);
     }
+
+    private void StartAcidRising() {
+        acidController.shouldGoUp = true;
+    } 
 
 
     public void WinGame() {
