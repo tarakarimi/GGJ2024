@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.transform.CompareTag("Blade"))
         {
             Debug.Log("Lost by blood");
-            GameManager.instance.LoseGameByBlood();
+            GameManager.Instance.LoseGameByBlood();
         } else if (other.transform.CompareTag("Food"))
         {
             Destroy(other.gameObject);

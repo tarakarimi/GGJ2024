@@ -3,7 +3,7 @@ using UnityEngine;
 public class daricheController : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.transform.CompareTag("Player")) {
-            GameManager.instance.StartGame();
+            GameManager.Instance.StartGame();
         }
     }
 }

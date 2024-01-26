@@ -9,20 +9,20 @@ public enum GameState {
 }
 
 public class GameManager : MonoBehaviour {
-    public static GameManager instance;
+    public static GameManager Instance;
     public GameState GameState { get; private set; }
     
     [SerializeField] private AcidController acidController;
     [SerializeField] private GameObject blades;
-
+    
     [Header("Blood Lose Screen")]
     [SerializeField] private GameObject bloodLoseScreen;
     [SerializeField] private Animation bloodLoseAnimation;
     [SerializeField] private FoodSpawner foodSpawner;
 
     private void Awake() {
-        if (instance == null) {
-            instance = this;
+        if (Instance == null) {
+            Instance = this;
         } else {
             Destroy(gameObject);
         }
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour {
     public void LoseGameByAcid() {
         if (IsGameOver()) return;
         GameState = GameState.AcidLost;
+        SceneHandler.Instance.LoadAcidLoseScene();
     }
 
     public void LoseGameByBlood() {
