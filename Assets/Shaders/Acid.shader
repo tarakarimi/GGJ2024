@@ -3,6 +3,7 @@ Shader "Unlit/Acid"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        [HideInInspector] _RendererColor ("RendererColor", Color) = (1,1,1,1)
         _BounceFreq ("Bounce Frequency", float) = 1
         _BounceAmplitude ("Bounce Amplitude", float) = 1
         _TimeSpeed ("Time Speed", float) = 1
@@ -16,11 +17,14 @@ Shader "Unlit/Acid"
             "RenderType"="Transparent"
             "PreviewType"="Plane"
             "CanUseSpriteAtlas"="True"
-        } 
+        }
         Blend SrcAlpha OneMinusSrcAlpha
-//        Blend One OneMinusSrcAlpha
+        //        Blend One OneMinusSrcAlpha
         LOD 100
-        ZWrite Off Cull Off Fog { Mode Off } Lighting Off
+        ZWrite Off Cull Off Fog
+        {
+            Mode Off
+        } Lighting Off
 
         Pass
         {
@@ -35,6 +39,7 @@ Shader "Unlit/Acid"
             struct appdata
             {
                 float4 vertex : POSITION;
+                float4 color : COLOR;
                 float2 uv : TEXCOORD0;
             };
 
@@ -42,6 +47,7 @@ Shader "Unlit/Acid"
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                float4 color : COLOR;
             };
 
             sampler2D _MainTex;
@@ -55,16 +61,16 @@ Shader "Unlit/Acid"
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.color = v.color;
                 return o;
             }
 
             fixed4 frag(v2f i) : SV_Target
             {
-                // return i.uv.x;
                 float bounce = sin(i.uv.x * _BounceFreq + _Time.y * _TimeSpeed) * _BounceAmplitude;
                 // return sin(i.uv.x * _BounceFreq + _Time.y) * _BounceAmplitude;/
                 i.uv.y += bounce;
-                fixed4 col = tex2D(_MainTex, float2(i.uv.x, i.uv.y));
+                fixed4 col = tex2D(_MainTex, float2(i.uv.x, i.uv.y)) * i.color;
                 return col;
             }
             ENDCG
