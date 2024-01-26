@@ -6,6 +6,7 @@ public class SceneHandler : MonoBehaviour {
 
     [SerializeField] private string gameSceneName;
     [SerializeField] private string acidLoseSceneName;
+    [SerializeField] private string winSceneName;
     
     private void Awake() {
         if (Instance == null) {
@@ -28,5 +29,9 @@ public class SceneHandler : MonoBehaviour {
 
     public void LoadAcidLoseScene() {
         SceneManager.LoadScene(acidLoseSceneName);
+    }
+
+    public void LoadWinScene() {
+        SceneManager.LoadScene(winSceneName);
     }
 }
