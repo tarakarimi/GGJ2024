@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSceneName: Path Scene
   acidLoseSceneName: Acid Lose
+  winSceneName: Win Scene

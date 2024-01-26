@@ -45,7 +45,8 @@ public class FeatherController : MonoBehaviour
     public void WiggleFeather()
     {
         isTickling = true;
-        transform.DOPunchRotation(new Vector3(0, 0, 1), 1f).OnComplete(() =>
+        _expressionHandler.SetExpression(ExpressionHandler.Expression.HAPPY);
+        transform.DOPunchRotation(new Vector3(0, 0, 1), 0.5f).OnComplete(() =>
         {
             isTickling = false;
             StartCoroutine(LaughCoolDown());
