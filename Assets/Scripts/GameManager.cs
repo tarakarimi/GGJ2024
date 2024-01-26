@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public enum GameState {
@@ -14,11 +15,16 @@ public class GameManager : MonoBehaviour {
     
     [SerializeField] private AcidController acidController;
     [SerializeField] private GameObject blades;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private FoodSpawner foodSpawner;
+    [SerializeField] private PathBounceController wallController;
     
+    [SerializeField] private CanvasGroup uiCanvasGroup;
+    [SerializeField] private float fadeInDuration = 0.5f;
+
     [Header("Blood Lose Screen")]
     [SerializeField] private GameObject bloodLoseScreen;
     [SerializeField] private Animation bloodLoseAnimation;
-    [SerializeField] private FoodSpawner foodSpawner;
 
     private void Awake() {
         if (Instance == null) {
@@ -31,6 +37,9 @@ public class GameManager : MonoBehaviour {
     void Start() {
         GameState = GameState.PreStart;
         foodSpawner.gameObject.SetActive(false);
+        uiCanvasGroup.alpha = 0;
+        playerMovement.enabled = false;
+        wallController.enabled = false;
     }
 
     public void StartGame() {
@@ -38,6 +47,9 @@ public class GameManager : MonoBehaviour {
         acidController.shouldGoUp = true;
         blades.SetActive(true);
         foodSpawner.isActive = true;
+        playerMovement.enabled = true;
+        wallController.enabled = true;
+        uiCanvasGroup.DOFade(1, fadeInDuration);
     }
 
 
